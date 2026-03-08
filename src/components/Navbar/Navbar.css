@@ -14,3 +14,6 @@
     display: flex;
     gap: 40px;
 }
+.navbar li {
+    cursor: pointer;
+}
