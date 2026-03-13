@@ -39,6 +39,7 @@ const Home = () => {
                 <img src={item.image} alt={item.name} />
                 <p>{item.name + " - " + item.symbol}</p>
               </div>
+              <p>{currency.symbol + item.current_price}</p>
             </div>
           ))}
       </div>
