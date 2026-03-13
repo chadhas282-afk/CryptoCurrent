@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from 'react';
 
 
 
-const CoinContext = createContext();
+export const CoinContext = createContext();
 
 const CoinContextProvider = (props) => {
 
@@ -17,7 +17,7 @@ const CoinContextProvider = (props) => {
 
         fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name.toLowerCase()}`, options)
             .then(res => res.json())
-            .then(res => setAllCoins(Response))
+            .then(res => setAllCoins(res))
             .catch(err => console.error(err));
     }
     useEffect(() => {
