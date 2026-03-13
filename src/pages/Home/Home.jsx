@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./Home.css";
+import { useContext } from 'react';
+import { CoinContext } from '../../context/CoinContext';
 
 const Home = () => {
+
+  const {allCoins, currency} = useContext(CoinContext);
+  const [displayCoin, setDisplayCoin] = useState([]);
+
+  useEffect(() => {
+    setDisplayCoin(allCoins);
+  }, [allCoins]);
+
   return (
     <div className='home'>
       <div className="hero">
