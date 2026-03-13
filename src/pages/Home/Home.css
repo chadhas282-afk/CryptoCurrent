@@ -11,3 +11,13 @@
     text-align: center;
     gap: 30px;
 }
+.hero h1{
+    font-size: max(4vw,36px);
+    color: #e3e3e3;
+    line-height: 1.5;
+}
+/* .hero p{
+    font-size: 75%;
+    color: #e3e3e3;
+    line-height: 1.5;
+} */
