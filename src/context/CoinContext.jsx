@@ -1,10 +1,13 @@
-import React, { createContext} from 'react';
+import React, { createContext, useState} from 'react';
 
 
 
 const CoinContext = createContext();
 
 const CoinContextProvider = (props) => {
+
+    const [allCoins, setAllCoins] = useState([]);
+
     const contextValue = {}
 
   return (
