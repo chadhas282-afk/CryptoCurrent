@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./Home.css";
 import { useContext } from 'react';
 import { CoinContext } from '../../context/CoinContext';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 
@@ -10,6 +11,9 @@ const Home = () => {
   const [input, setInput] = useState("");
   const inputHandler = (e) => {
     setInput(e.target.value);
+    if (e.target.value === "") {
+      setDisplayCoin(allCoins);
+    }
   }
   const searchHandler = async (e) => {
       e.preventDefault();
@@ -30,7 +34,12 @@ const Home = () => {
         <h1>Largest <br/> Cryptocurrency Marketplace</h1>
         <p>Welcome to the world's largest Cryptocurrency Marketplace. Sign up to explore more about thousands of cryptocurrencies.</p>
         <form onSubmit={searchHandler}>
-          <input type="text" placeholder='Search crypto' value={input} onChange={inputHandler}  required/>
+          <input type="text" placeholder='Search crypto' list='coinlist' value={input} onChange={inputHandler}  required/>
+          <datalist id='coinlist'>
+            {allCoins.map((coin, index) => (
+              <option key={index} value={coin.name} />
+            ))}
+          </datalist>
           <button type='submit'>Search</button>
         </form>
       </div>
@@ -44,7 +53,7 @@ const Home = () => {
         </div>
         {
           displayCoin?.slice(0, 10).map((item, index) => (
-            <div className="table-layout" key={index}>
+            <Link to={`/coin/${item.id}`} className="table-layout" key={index}>
               <p>{item.market_cap_rank}</p>
               <div>
                 <img src={item.image} alt={item.name} />
@@ -54,7 +63,7 @@ const Home = () => {
               <p className={item.price_change_percentage_24h > 0? "green" : "red"}
               >{Math.floor(item.price_change_percentage_24h * 100)/100}</p>
               <p className='market-cap'>{currency.symbol + item.market_cap.toLocaleString()}</p>
-            </div>
+            </Link>
           ))}
       </div>
     </div>
