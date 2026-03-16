@@ -60,7 +60,7 @@ const Coin = () => {
                 Price
               </li>
               <li>
-                {currency.symbol} {coindata.market_data.current_price[currency.name.toLowerCase()]}
+                {currency.symbol} {coindata.market_data.current_price[currency.name.toLowerCase()].toLocaleString()}
               </li>
             </ul>
             <ul>
@@ -68,7 +68,7 @@ const Coin = () => {
                 Market Cap
               </li>
               <li>
-                {currency.symbol} {coindata.market_data.market_cap[currency.name.toLowerCase()]}
+                {currency.symbol} {coindata.market_data.market_cap[currency.name.toLowerCase()].toLocaleString()}
               </li>
             </ul>
             <ul>
@@ -76,7 +76,7 @@ const Coin = () => {
               24 Hour Price high
             </li>
             <li>
-              {currency.symbol} {coindata.market_data.high_24h[currency.name.toLowerCase()]}
+              {currency.symbol} {coindata.market_data.high_24h[currency.name.toLowerCase()].toLocaleString()}
             </li>
             </ul>
             <ul>
@@ -84,7 +84,7 @@ const Coin = () => {
                 24 Hour Price low
               </li>
               <li>
-                {currency.symbol} {coindata.market_data.low_24h[currency.name.toLowerCase()]}
+                {currency.symbol} {coindata.market_data.low_24h[currency.name.toLowerCase()].toLocaleString()}
               </li>
             </ul>
           
